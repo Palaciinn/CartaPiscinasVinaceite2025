@@ -1,0 +1,183 @@
+html, body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Luckiest Guy', cursive;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.hero {
+  background-image: url('img/agua.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: sticky; /* hace que el fondo quede "pegado" arriba */
+  top: 0;
+  z-index: 0;
+}
+
+.logo {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  max-width: 20vw;
+  z-index: 2;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+}
+
+
+.hero h1 {
+  font-size: 3em;
+  text-shadow: 2px 2px 6px #00000099;
+  margin: 0;
+}
+
+.scroll {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.scroll p {
+  margin: 5px 0 0;
+  font-size: 1.2em;
+  color: white;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* -------------------------------
+   SEGUNDA SECCIÓN - TARJETAS
+---------------------------------*/
+
+.menu-section {
+  background-color: #F5F5F5;
+  padding: 4rem 2rem;
+  border-radius: 40px 40px 0 0;
+  /*box-shadow: 0 -4px 20px rgba(0,0,0,0.1);*/
+  position: relative;
+  z-index: 1;
+  margin-bottom: -5px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card img {
+  width: 100%;
+  max-height: 150px;
+  object-fit: contain;
+  padding: 10px;
+  display: block;
+}
+
+.card h3 {
+  margin: 0;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  background-color: #1ba3d0;
+  color: white;
+  letter-spacing: 1px;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/*----------------------------
+FOOTER
+----------------------------*/
+.footer {
+  background-color: #F5F5F5;
+  padding: 0rem 2rem;
+  padding-bottom: 40px;
+  text-align: center;
+  font-family: 'Fredoka', sans-serif;
+  color: #333;
+}
+
+.footer p {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.instagram-link {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.instagram-link:hover {
+  transform: scale(1.1);
+}
+
+.instagram-icon {
+  width: 40px;
+  height: 40px;
+}
+
+/*----------------------------
+SEPARADOR
+----------------------------*/
+
+.footer-separator {
+  border: none;
+  border-top: 4px solid #1ba3d0;
+  width: 200px;
+  margin: 3rem auto 1rem;
+  opacity: 0;
+  transform: scaleX(0);
+  animation: expand-separator 1s ease-out forwards;
+  animation-delay: 0.3s;
+  margin-bottom: 50px;
+}
+
+@keyframes expand-separator {
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}

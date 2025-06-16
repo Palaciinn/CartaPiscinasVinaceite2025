@@ -38,15 +38,13 @@
 </head>
 <body>
 
-  <!-- Loader con nueva animación Lottie -->
+  <!-- Loader sin texto -->
   <div id="loader">
     <dotlottie-player 
-      id="loaderLottie"
       src="https://lottie.host/baeea416-8db7-49e8-b3e0-86183d154c76/dB11zBP5ze.lottie" 
       background="transparent" 
       speed="1" 
       style="width: 300px; height: 300px;" 
-      loop 
       autoplay>
     </dotlottie-player>
   </div>
@@ -57,22 +55,10 @@
   </div>
 
   <script>
-    const loader = document.getElementById('loader');
-    const pdfContainer = document.getElementById('pdf-container');
-    const player = document.getElementById('loaderLottie');
-
-    player.addEventListener('ready', () => {
-      let loops = 0;
-
-      player.addEventListener('loop', () => {
-        loops++;
-        if (loops >= 1) {
-          loader.style.display = 'none';
-          pdfContainer.style.display = 'block';
-          player.pause(); // opcional
-        }
-      });
-    });
+    setTimeout(() => {
+      document.getElementById('loader').style.display = 'none';
+      document.getElementById('pdf-container').style.display = 'block';
+    }, 2300); // 2.3 segundos
   </script>
 
 </body>

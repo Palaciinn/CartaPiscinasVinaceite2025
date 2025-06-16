@@ -9,56 +9,25 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
     }
 
-    body {
-      background-image: url('img/fondoHamburguesasPc.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .imagen-mobile,
-    .fondo-mobile {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        background: none;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .fondo-mobile {
-        display: block;
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 0;
-      }
-
-      .imagen-mobile {
-        display: block;
-        width: 1080px;
-        max-width: 100%;
-        height: auto;
-        z-index: 1;
-        position: relative;
-      }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100vh;
     }
   </style>
+
+  <script>
+    if (window.innerWidth <= 768) {
+      window.location.href = "bocadillos&Hamburguesas.pdf";
+    }
+  </script>
 </head>
 <body>
-  <!-- Imagen solo visible en móvil como fondo -->
-  <img src="img/agua.jpg" alt="Fondo móvil" class="fondo-mobile">
 
-  <!-- Imagen central (cartel a 1080px de ancho real) -->
-  <img src="img/fondoHamburguesasMobile.png" alt="Imagen móvil centrada" class="imagen-mobile">
+  <!-- Solo se ve en escritorio -->
+  <iframe src="bocadillos&Hamburguesas.pdf"></iframe>
+
 </body>
 </html>

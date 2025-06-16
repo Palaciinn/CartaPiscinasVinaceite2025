@@ -4,30 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bocadillos</title>
+
+  <!-- Lottie Player -->
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
+      background: white;
     }
 
-    iframe {
-      border: none;
+    #loader {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #pdf-container {
+      display: none;
       width: 100%;
       height: 100vh;
     }
-  </style>
 
-  <script>
-    if (window.innerWidth <= 768) {
-      window.location.href = "bocadillos&Hamburguesas.pdf";
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
-  </script>
+  </style>
 </head>
 <body>
 
-  <!-- Solo se ve en escritorio -->
-  <iframe src="bocadillos&Hamburguesas.pdf"></iframe>
+  <!-- Loader para todas las vistas -->
+  <div id="loader">
+    <dotlottie-player 
+      src="https://lottie.host/baeea416-8db7-49e8-b3e0-86183d154c76/dB11zBP5ze.lottie" 
+      background="transparent" 
+      speed="1" 
+      style="width: 300px; height: 300px;" 
+      autoplay>
+    </dotlottie-player>
+  </div>
+
+  <!-- PDF embebido (solo escritorio) -->
+  <div id="pdf-container">
+    <iframe src="bocadillos&Hamburguesas.pdf"></iframe>
+  </div>
+
+  <script>
+    const isMobile = window.innerWidth <= 768;
+
+    setTimeout(() => {
+      if (isMobile) {
+        // En móvil: redirige al PDF
+        window.location.href = "bocadillos&Hamburguesas.pdf";
+      } else {
+        // En escritorio: muestra el iframe
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('pdf-container').style.display = 'block';
+      }
+    }, 2300); // 2.3 segundos
+  </script>
 
 </body>
 </html>

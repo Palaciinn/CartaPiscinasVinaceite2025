@@ -200,13 +200,13 @@ BOTÓN DESCARGAR PDF
   text-decoration: none;
   padding: 1rem 2rem;
   border-radius: 10px;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 👈 sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .download-pdf a:hover {
-  background-color: #1283a8;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); /* 👈 sombra más intensa al pasar el mouse */
+  transform: scale(1.05); /* 👈 zoom suave */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -243,4 +243,29 @@ MAPA DONDE ESTAMOS
   height: 400px;
   border-radius: 12px;
 }
+
+.map-button {
+  margin-top: 1rem;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.map-button a {
+  display: inline-block;
+  background-color: #1ba3d0;
+  color: white;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.map-button a:hover {
+  background-color: #1283a8;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
 

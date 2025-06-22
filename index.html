@@ -31,6 +31,10 @@
 
     <section class="menu-section">
       <div class="cards-container">
+        <a href="raciones.html" class="card">
+          <img src="img/pulpo.png" alt="Raciones">
+          <h3>Raciones</h3>
+        </a>
         <a href="bocadillos.html" class="card">
           <img src="img/bocadilloCalamares.png" alt="Bocadillos">
           <h3>Bocadillos</h3>
@@ -42,10 +46,6 @@
         <a href="ensaladas.html" class="card">
           <img src="img/ensalada.png" alt="Ensaladas">
           <h3>Ensaladas</h3>
-        </a>
-        <a href="raciones.html" class="card">
-          <img src="img/pulpo.png" alt="Raciones">
-          <h3>Raciones</h3>
         </a>
         <a href="platosCombinados.html" class="card">
           <img src="img/platoPechugas.png" alt="Platos combinados">
@@ -140,6 +140,7 @@
 
 <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 <script>
+  // Galería expandida
   function abrirGaleria() {
     document.getElementById('galeria').style.display = 'flex';
   }
@@ -147,12 +148,28 @@
   function cerrarGaleria() {
     document.getElementById('galeria').style.display = 'none';
   }
-</script>
-<script>
+
+  // ----------------------
+  // Visor con navegación
+  // ----------------------
+
+  const imagenesGaleria = [
+    "img/sombrilla.jpeg",
+    "img/piscinaPrincipal.jpeg",
+    "img/piscinaInfantil.jpeg",
+    "img/terraza.jpeg",
+    "img/cesped.jpeg",
+    "img/baños.jpeg"
+  ];
+
+  let imagenActual = 0;
+
   function abrirVisor(src) {
     const visor = document.getElementById("visorImagen");
     const img = document.getElementById("visorImagenAmpliada");
-    img.src = src;
+    imagenActual = imagenesGaleria.indexOf(normalizarRuta(src));
+    if (imagenActual === -1) imagenActual = 0; // fallback
+    img.src = imagenesGaleria[imagenActual];
     visor.style.display = "flex";
   }
 
@@ -160,21 +177,34 @@
     document.getElementById("visorImagen").style.display = "none";
   }
 
-  // Asignar a todas las imágenes dentro de .galeria-imagenes
-  document.addEventListener("DOMContentLoaded", function() {
-    const imagenes = document.querySelectorAll(".galeria-imagenes img");
+  function cambiarImagen(direccion) {
+    imagenActual += direccion;
+    if (imagenActual < 0) imagenActual = imagenesGaleria.length - 1;
+    if (imagenActual >= imagenesGaleria.length) imagenActual = 0;
+    document.getElementById("visorImagenAmpliada").src = imagenesGaleria[imagenActual];
+  }
+
+  function normalizarRuta(src) {
+    const partes = src.split('/');
+    return 'img/' + partes[partes.length - 1];
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const imagenes = document.querySelectorAll(".galeria-imagenes img, .instalaciones-grid img");
     imagenes.forEach(img => {
       img.addEventListener("click", (e) => {
-        e.stopPropagation(); // Para evitar cerrar todo al hacer clic
+        e.stopPropagation();
         abrirVisor(img.src);
       });
     });
   });
 </script>
 
-<div id="visorImagen" class="visor-overlay" onclick="cerrarVisor()">
-  <span class="visor-cerrar">✖</span>
+<div id="visorImagen" class="visor-overlay">
+  <span class="visor-cerrar" onclick="cerrarVisor()">✖</span>
+  <span class="visor-flecha visor-prev" onclick="cambiarImagen(-1)">&#10094;</span>
   <img id="visorImagenAmpliada" src="" alt="Imagen ampliada">
+  <span class="visor-flecha visor-next" onclick="cambiarImagen(1)">&#10095;</span>
 </div>
 
 </body>

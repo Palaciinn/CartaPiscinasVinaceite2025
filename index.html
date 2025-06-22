@@ -60,6 +60,10 @@
     </section>
   </main>
 
+  <div class="separator-wrapper">
+  <hr class="section-separator">
+  </div>
+
   <section class="map-section">
   <h2 class="map-title">¿Dónde estamos? 📍</h2>
 
@@ -82,15 +86,96 @@
   </div>
 </section>
 
-  <footer class="footer">
-    <hr class="footer-separator">
-    <p>Síguenos en Instagram</p>
-    <a href="https://www.instagram.com/ayto.vinaceite/" target="_blank" class="instagram-link">
-      <img src="img/instagram-icon.svg" alt="Instagram" class="instagram-icon">
-    </a>
-  </footer>
+<section class="horarios-section">
+  <h2 class="horarios-title">Horarios</h2>
+  <div class="horarios-card">
+    <p><strong>Lunes a Viernes:</strong> 10:00 - 00:00</p>
+    <p><strong>Sábados:</strong> 10:00 - 02:00</p>
+    <p><strong>Domingos:</strong> 10:00 - 00:00</p>
+  </div>
+</section>
 
-  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<div class="separator-wrapper">
+  <hr class="section-separator">
+</div>
+
+<section class="instalaciones-section">
+  <h2 class="instalaciones-title">Conoce nuestras instalaciones</h2>
+  <div class="instalaciones-grid">
+  <img src="img/sombrilla.jpeg" alt="Instalación 1" onclick="abrirVisor(this.src)">
+  <img src="img/piscinaPrincipal.jpeg" alt="Instalación 2" onclick="abrirVisor(this.src)">
+  <img src="img/piscinaInfantil.jpeg" alt="Instalación 3" onclick="abrirVisor(this.src)">
+  <img src="img/terraza.jpeg" alt="Instalación 4" onclick="abrirVisor(this.src)">
+  </div>
+  <div class="ver-mas">
+  <button onclick="abrirGaleria()">Ver más</button>
+</div>
+
+<div class="galeria-overlay" id="galeria">
+  <div class="galeria-contenido">
+  <div class="galeria-header">
+    <h3 class="galeria-titulo">Instalaciones</h3>
+    <span class="cerrar-galeria" onclick="cerrarGaleria()">✖</span>
+  </div>
+  <div class="galeria-imagenes">
+    <img src="img/sombrilla.jpeg" alt="Instalación 1">
+    <img src="img/piscinaPrincipal.jpeg" alt="Instalación 2">
+    <img src="img/piscinaInfantil.jpeg" alt="Instalación 3">
+    <img src="img/terraza.jpeg" alt="Instalación 4">
+    <img src="img/cesped.jpeg" alt="Instalación 5">
+    <img src="img/baños.jpeg" alt="Instalación 6">
+  </div>
+</div>
+</div>
+</section>
+
+
+<footer class="footer">
+  <hr class="footer-separator">
+  <p>Síguenos en Instagram</p>
+  <a href="https://www.instagram.com/ayto.vinaceite/" target="_blank" class="instagram-link">
+    <img src="img/instagram-icon.svg" alt="Instagram" class="instagram-icon">
+  </a>
+</footer>
+
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<script>
+  function abrirGaleria() {
+    document.getElementById('galeria').style.display = 'flex';
+  }
+
+  function cerrarGaleria() {
+    document.getElementById('galeria').style.display = 'none';
+  }
+</script>
+<script>
+  function abrirVisor(src) {
+    const visor = document.getElementById("visorImagen");
+    const img = document.getElementById("visorImagenAmpliada");
+    img.src = src;
+    visor.style.display = "flex";
+  }
+
+  function cerrarVisor() {
+    document.getElementById("visorImagen").style.display = "none";
+  }
+
+  // Asignar a todas las imágenes dentro de .galeria-imagenes
+  document.addEventListener("DOMContentLoaded", function() {
+    const imagenes = document.querySelectorAll(".galeria-imagenes img");
+    imagenes.forEach(img => {
+      img.addEventListener("click", (e) => {
+        e.stopPropagation(); // Para evitar cerrar todo al hacer clic
+        abrirVisor(img.src);
+      });
+    });
+  });
+</script>
+
+<div id="visorImagen" class="visor-overlay" onclick="cerrarVisor()">
+  <span class="visor-cerrar">✖</span>
+  <img id="visorImagenAmpliada" src="" alt="Imagen ampliada">
+</div>
 
 </body>
 </html>

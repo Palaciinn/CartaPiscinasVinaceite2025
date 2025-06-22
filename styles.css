@@ -269,3 +269,288 @@ MAPA DONDE ESTAMOS
 }
 
 
+/*------------------------
+HORARIOS
+------------------------*/
+
+.horarios-section {
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.horarios-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.horarios-card {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.horarios-card p {
+  margin: 0.7rem 0;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/*--------------------------------
+INSTALACIONES
+--------------------------------*/
+.instalaciones-section {
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.instalaciones-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.instalaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.instalaciones-grid img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  height: 180px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ver-mas {
+  text-align: center;
+}
+
+.ver-mas a {
+  display: inline-block;
+  background-color: #1ba3d0;
+  color: white;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.ver-mas a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Galería emergente (lightbox) */
+.galeria-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  z-index: 9999;
+  padding: 1rem;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+
+.galeria-contenido {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+
+
+.galeria-imagenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.galeria-imagenes img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cerrar-galeria {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  z-index: 10;
+}
+
+.ver-mas button {
+  background-color: #1ba3d0;
+  color: white;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ver-mas button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.galeria-header {
+  height: 48px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.cerrar-galeria {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  z-index: 10;
+  background: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.galeria-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.galeria-titulo {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  padding-left: 0.5rem;
+}
+
+.cerrar-galeria {
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  background: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+.visor-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10000;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.visor-overlay img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  display: block;
+  margin: 0 auto;
+}
+
+.visor-cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.visor-cerrar {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-bottom: 1rem;
+}
+
+
+
+/*-----------------------
+SEPARADOR HORARIOS
+-----------------------*/
+.separator-wrapper {
+  background-color: #f5f5f5;
+  padding: 2rem 0;
+}
+
+.section-separator {
+  border: none;
+  border-top: 4px solid #1ba3d0;
+  width: 200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: scaleX(0);
+  animation: expand-separator 1s ease-out forwards;
+}
+
